@@ -1,2 +1,7 @@
-## Im making a title
-This is cosme making a text
+# Welcome to Snapshot - 
+
+## Introduction
+Snapshot is a social network where students share their high school years.
+
+## Website
+foothillertech.com

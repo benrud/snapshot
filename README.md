@@ -4,4 +4,7 @@
 Snapshot is a social network where students share their high school years.
 
 ## Website
-foothillertech.com
+foothillertech (foothillertech.com)
+
+## About the Branching 
+4 branches apart from the master are 

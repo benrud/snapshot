@@ -1,0 +1,7 @@
+{
+	"module.editor.editors": {
+		"softTabs": false,
+		"tabSize": 2,
+		"stripWhitespace": true
+	}
+}

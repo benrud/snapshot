@@ -45,11 +45,14 @@
 		Use the unix command `curl` with the first parameter being the url requesting
 		For example:
 		curl foothillertech.com/socialnetwork2/resources/backend/content/getContent
+
+		And the script should return the values or data in the database from the getContent class below
+
 		*/
 		
 		
 		
-	 	//Getting content from database
+	//Getting content from database
 	 	public function getContent(){
     //curl foothillertech.com/socialnetwork2/resources/backend/content/getContent
 	 		
@@ -61,12 +64,15 @@
 			$i = 0;
 			foreach($pdo->query($sql) as $row) {
 						//Defining by database
-						$username = ($row[0]);
-						$id = ($row[1]);
-						$date = ($row[2]);
-						$image = ($row[3]);
-						$caption = ($row[4]);
-						$b = ($id != "2") ? "," : "";
+						$username = ($row[0]); //This defines the 1st row as username
+						$id = ($row[1]); //Same as id defining 2nd row
+						$date = ($row[2]); //3rd row
+						$image = ($row[3]); //4th row
+						$caption = ($row[4]); //5th row
+						$b = ($id != "2") ? "," : ""; //This is logic for JSON
+						/*
+							JSON has it so that every object has to be followed with a comma, exept for the last one. However, 
+						*/
 						$JSONparse = $JSONparse . $b . '"' . $i . '":{ "username": "' . $username . '","id": "' . $id . '", "date": "' . $date . '", "image": "' . $caption . '", "caption": "' . $image . '"}'; //Commonality for caption
 						$i++;
 					}

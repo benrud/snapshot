@@ -15,7 +15,7 @@
         die('Init function is not allowed'); //In case it does it tells you why
     }
      
-    public static function connect()
+    public static function connect()// function to connect to database
     {
        // One connection through whole application
        if ( null == self::$cont ) 
@@ -32,7 +32,7 @@
        return self::$cont; 
     }
      
-    public static function disconnect()
+    public static function disconnect() //Function to disconnect from database
     {
         self::$cont = null;
     }

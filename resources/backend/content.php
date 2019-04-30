@@ -44,9 +44,12 @@
 		to make single HTTP requests we can use the terminal...
 		Use the unix command `curl` with the first parameter being the url requesting
 		For example:
+		Open the terminal and type,
 		curl foothillertech.com/socialnetwork2/resources/backend/content/getContent
 
 		And the script should return the values or data in the database from the getContent class below
+
+
 
 		*/
 		
@@ -57,13 +60,14 @@
     //curl foothillertech.com/socialnetwork2/resources/backend/content/getContent
 	 		
 	 		$pdo = DatabaseContent::connect(); //Creates the DatabaseContent class and then calls the connect function
-			$sql = "select * from `post` order by `date`"; //SQL statement that selects everything chronological
+			$sql = "select * from `post` order by `date` DESC"; //SQL statement that selects everything chronological
 			$JSONparse = ''; //Creates a JSONparse
 			// Defining arrays of data
 			//$content = array();
 			$i = 0;
 			foreach($pdo->query($sql) as $row) {
 						//Defining by database
+						//Every function compiles the database the same way
 						$username = ($row[0]); //This defines the 1st row as username
 						$id = ($row[1]); //Same as id defining 2nd row
 						$date = ($row[2]); //3rd row
@@ -108,7 +112,7 @@
 	 		//curl -d "username='MatthewG'" -X POST foothillertech.com/socialnetwork2/resources/backend/content/getUserPost
 	 		
 	 		$pdo = DatabaseContent::connect();
-	 	 	$sql = 'SELECT * FROM `post` WHERE `username`= ' . $post['username'];
+	 	 	$sql = 'SELECT * FROM `post` WHERE `username`= ' . $post['username'] . ' DESC';
 	 	 	$i = 0;
 			foreach($pdo->query($sql) as $row) {
 						//Defining by database
@@ -133,9 +137,11 @@
 	 		//return;
 	 		//curl -d "loggedIn=true&username='MatthewG'&caption='yeet works'&image='somestring.com'" -X POST foothillertech.com/socialnetwork2/resources/backend/content/putUserPost
 	 		
-	 		
-	 		
-	 		if(isset($_SESSION['snapshot_username'])){
+			 
+			//putUserPost() first checks if the user is logged in in the line below. 
+
+			
+	 		if(isset($_SESSION['snapshot_username'])){ 
 	 			/*$pdo = DatabaseContent::connect();
 	 			//$username = $_SESSION['snapshot_username'];
 	 			$username = 'MatthewG';
@@ -144,10 +150,10 @@
 				
 				$pdo->query($sql);
 				*/
-				$username = $_SESSION['snapshot_username'];
-				$caption = $post['caption'];
-				$image = $post['image'];
-				$pdo = DatabaseContent::connect();
+				$username = $_SESSION['snapshot_username']; //this defines the username
+				$caption = $post['caption']; //This defines the caption
+				$image = $post['image']; //This defines the URL
+				$pdo = DatabaseContent::connect(); //
 					$sql = 'INSERT INTO post (username, caption, image) values(?,?,?)';
 					$q = $pdo->prepare($sql);
 					$q->execute(array($username,$caption, $image));

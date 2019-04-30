@@ -1,5 +1,6 @@
 <!--If youre not Kyle or Cosme, get out of this file... dont touch it... dont execute it... dont play with it... this literally can kill the server...-->
 <!--Either you understand how to use a terminal or not, get out... even if you think you know what youre doing-->
+<!-- Future classes should assign someone that knows how to use the terminal properly -->
 <?php
 	//$command = escapeshellcmd('./python/index.py');
 	//cat ./backend/content.php &

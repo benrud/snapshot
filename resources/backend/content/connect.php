@@ -11,25 +11,25 @@
     
     private static $cont  = null; //defining content
      
-    public function __construct() { //Constructing the file
-        die('Init function is not allowed'); //Constructing other things
+    public function __construct() { //Constructing the connection
+        die('Init function is not allowed'); //In case it does it tells you why
     }
      
     public static function connect()
     {
        // One connection through whole application
-       if ( null == self::$cont )
+       if ( null == self::$cont ) 
        {
         try
         {
-          self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);
+          self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword); //This functions does the request to self
         }
         catch(PDOException $e)
         {
-          die($e->getMessage());
+          die($e->getMessage()); //In case it doesn't work returns the error
         }
        }
-       return self::$cont;
+       return self::$cont; 
     }
      
     public static function disconnect()

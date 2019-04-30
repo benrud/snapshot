@@ -1,6 +1,3 @@
-<!-- This is the class for the databse -->
-<!-- This file never changes unless you need to update the dabatase -->
-
 <?php
 	class DatabaseContent //Defining the class
 	{

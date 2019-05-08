@@ -60,7 +60,7 @@
     //curl foothillertech.com/socialnetwork2/resources/backend/content/getContent
 	 		
 	 		$pdo = DatabaseContent::connect(); //Creates the DatabaseContent class and then calls the connect function
-			$sql = "select * from `post` order by `date`"; //SQL statement that selects everything chronological
+			$sql = "select * from `post` order by `date` asc"; //SQL statement that selects everything chronological
 			$JSONparse = ''; //Creates a JSONparse
 			// Defining arrays of data
 			//$content = array();

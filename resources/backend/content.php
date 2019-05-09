@@ -73,7 +73,7 @@
 						$date = ($row[2]); //3rd row
 						$image = ($row[3]); //4th row
 						$caption = ($row[4]); //5th row
-						$b = ($id != "2") ? "," : ""; //This is logic for JSON
+						$b = ($i != 0) ? "," : ""; //This is logic for JSON
 						/*
 							JSON has it so that every object has to be followed with a comma, exept for the last one. However, 
 						*/

@@ -59,21 +59,16 @@ Z
 
 */
 
-
-var feedback = function(res) { //This function literally prints what it just uploaded to imgur
-    if (res.success === true) {// if the response is sucessful, continue
-        var get_link = res.data.link.replace(/^http:\/\//i, 'https://'); //Parses the link for human consumption 
-        document.querySelector('.status').classList.add('bg-success');// gets the class 'status' ands adds the class 'bg-success'
-        document.querySelector('.status').innerHTML =
-            'Image : ' + '<br><input class="image-url" value=\"' + get_link + '\"/>' + '<img class="img" alt="Imgur-Upload" src=\"' + get_link + '\"/>';
-              /* gets the literal hard code of 'status' and whatever it contains and parses it as html so the user can view whatever image just uploaded, it also prints a link*/
-    }
+var feedback = function(res) {
+  if (res.success === true) {
+      var get_link = res.data.link.replace(/^http:\/\//i, 'https://');
+      document.querySelector('.status').classList.add('bg-success');
+      document.querySelector('.status').innerHTML =
+          'Image : ' + '<br><input class="image-url" value=\"' + get_link + '\"/>' + get_link + '\"/>';
+  }
 };
-new Imgur({ //makes a new imgur class so it can do funky stuff
-    clientid: '4409588f10776f7', //You can NOT change this. Unless you get another account and re-do the entire getting a client id process. :)
-    callback: feedback
+
+new Imgur({
+  clientid: '4409588f10776f7', //You can change this ClientID
+  callback: feedback
 });
-/*
-
-
-*/

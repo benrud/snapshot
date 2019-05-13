@@ -22,7 +22,7 @@
 
     	$result = $conn->query($sql); //connects to database and executes query
     	echo $result; //outputs query's result
-		
+		// this is a comment
 		
 		*/
 	class Content{ //This is the Content class
